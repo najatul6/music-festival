@@ -1,10 +1,13 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
+
 const About = () => {
+
     useEffect(() => {
         AOS.init();
     }, []);
+    
     return (
         <div>
             <h2 className="text-2xl bg-[#7c60ff] text-white py-8 text-center font-bold mb-4">ABOUT NIN SYSTEM</h2>
