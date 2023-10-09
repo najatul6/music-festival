@@ -9,6 +9,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Service from "../Pages/Service/Service";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 const Routes = createBrowserRouter([
     {
@@ -35,7 +36,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path:"/services/:id",
-                element:<Service></Service>,
+                element:<PrivateRoute><Service></Service></PrivateRoute>,
             },
             {
                 path:'/gallery',

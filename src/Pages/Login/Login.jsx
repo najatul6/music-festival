@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsFacebook, BsGoogle, BsGithub } from "react-icons/bs";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -8,6 +8,8 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const { signIn, googleSignIn, githubSignIn, facebookSignIn } = useContext(AuthContext);
+    const location = useLocation()
+    const navigate  = useNavigate()
 
     const handleGoogle = () => {
         googleSignIn()
@@ -46,14 +48,12 @@ const Login = () => {
         const password = form.get('password')
         signIn(email, password)
             .then(result => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Well Done',
-                    text: 'Log Out Successful',
-                })
+                console.log(result.user);
+                navigate(location?.state ? location.state : '/');
             })
 
             .catch(error=>{
+                console.log(error.message)
                 Swal.fire({
                     icon: 'error',
                     title: 'Opps...!',
@@ -122,7 +122,7 @@ const Login = () => {
                         type="submit"
                         data-ripple-light="true"
                     >
-                        Register
+                        Log IN
                     </button>
                 </form>
                 <hr className="my-4" />

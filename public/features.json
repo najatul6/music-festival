@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/7Jzq6WB/te-nguyen-Wt7-XT1-R6sj-U-unsplash.jpg",
+        "title": "Awesome Music Festival",
+        "value":5,
+        "description": "I had the best time at the music festival organized by this company. The music was fantastic, and the atmosphere was electric. Can't wait for the next one!"
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/MS3mj8B/claudia-raya-Ol0w-Jh-Wu3-s-unsplash.jpg",
+        "title": "Unforgettable Experience",
+        "value":4.5,
+        "description": "Attending the music festival hosted by this company was an unforgettable experience. The lineup was incredible, and the production quality was top-notch. Kudos to the organizers!"
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/7gQ7DGY/melanie-van-leeuwen-QA-q-Qf-WJM0-E-unsplash.jpg",
+        "title": "Product XYZ",
+        "value":5,
+        "description": "Introducing our latest product, XYZ, designed to meet your needs."
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/p0g82sb/obafemi-moyosade-zndsl-HAXh-Aw-unsplash.jpg",
+        "title": "Awesome Widget",
+        "value":4.5,
+        "description": "The awesome widget that will change your life!"
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/g6CT3GR/nihal-demirci-erenay-j-Kt-QTs-K0a-FA-unsplash.jpg",
+        "title": "Event Announcement",
+        "value":3.5,
+        "description": "Join us for an exciting event happening in your city soon!"
+    }
+]
+
+
+
+
