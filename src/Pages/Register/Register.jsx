@@ -1,9 +1,23 @@
 import { Link } from "react-router-dom";
 import { BsFacebook, BsGoogle, BsGithub } from "react-icons/bs";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
+
+
 const Register = () => {
+
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
     return (
-        <div className="mx-auto border-4 rounded-xl shadow-2xl shadow-[#7c60ff] md:bg-[#7c60ff33] my-4 border-[#7c60ff] flex justify-center md:w-1/2 py-10 px-0 md:px-5">
-            <div className="relative flex flex-col rounded-xl bg-dark bg-clip-border text-white">
+        <div
+            data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000"
+            className="mx-auto border-4 rounded-xl shadow-2xl shadow-[#7c60ff] md:bg-[#7c60ff33] my-4 border-[#7c60ff] flex justify-center md:w-1/2 py-10 px-0 md:px-5">
+            <div
+                data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000"
+                className="relative flex flex-col rounded-xl bg-dark bg-clip-border text-white">
                 <h4 className="block text-center text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                     Sign Up
                 </h4>
@@ -12,7 +26,9 @@ const Register = () => {
                 </p>
                 <form className="mt-8 mb-2 md:w-80 max-w-screen-lg md:w-96">
                     <div className="mb-4 flex flex-col gap-6">
-                        <div className="relative h-11 w-full min-w-[200px]">
+                        <div
+                            data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000"
+                            className="relative h-11 w-full min-w-[200px]">
                             <input
                                 type="text"
                                 name="name"
@@ -25,7 +41,9 @@ const Register = () => {
                                 Name
                             </label>
                         </div>
-                        <div className="relative h-11 w-full min-w-[200px]">
+                        <div
+                            data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000"
+                            className="relative h-11 w-full min-w-[200px]">
                             <input
                                 type="email"
                                 name="email"
@@ -38,7 +56,9 @@ const Register = () => {
                                 Email
                             </label>
                         </div>
-                        <div className="relative h-11 w-full min-w-[200px]">
+                        <div
+                            data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000"
+                            className="relative h-11 w-full min-w-[200px]">
                             <input
                                 type="password"
                                 name="password"
@@ -52,7 +72,9 @@ const Register = () => {
                             </label>
                         </div>
                     </div>
-                    <div className="inline-flex items-center">
+                    <div
+                        data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000"
+                        className="inline-flex items-center">
                         <label
                             className="relative -ml-2.5 flex cursor-pointer items-center rounded-full p-3"
                             htmlFor="checkbox"
@@ -97,6 +119,7 @@ const Register = () => {
                         </label>
                     </div>
                     <button
+                        data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000"
                         className="mt-6 block w-full select-none rounded-lg bg-[#7c60ff] py-3 px-6 text-center align-middle text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
                         data-ripple-light="true"
@@ -104,7 +127,9 @@ const Register = () => {
                         Register
                     </button>
                     <hr className="my-4" />
-                    <div>
+                    <div 
+                    data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000"
+                    >
                         <p className="flex items-center justify-center">
                             <p className="w-1/4 h-[3px] bg-slate-400"></p>
                             <span className="mx-2">Continue with</span>
@@ -116,11 +141,13 @@ const Register = () => {
                             <button><BsFacebook></BsFacebook></button>
                         </div>
                     </div>
-                    <p className="mt-4 block text-center text-base font-normal leading-relaxed text-white antialiased">
+                    <p 
+                    data-aos="zoom-out" data-aos-delay="50" data-aos-duration="1000"
+                    className="mt-4 block text-center text-base font-normal leading-relaxed text-white antialiased">
                         Already have an account?
                         <Link
                             className="ml-2 font-medium text-[#7c60ff] transition-colors hover:text-blue-600"
-                           to='/login'
+                            to='/login'
                         >
                             Log In
                         </Link>
