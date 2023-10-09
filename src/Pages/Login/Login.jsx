@@ -2,9 +2,66 @@ import { Link } from "react-router-dom";
 import { BsFacebook, BsGoogle, BsGithub } from "react-icons/bs";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../Shared/hook/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+    const { signIn, googleSignIn, githubSignIn, facebookSignIn } = useContext(AuthContext);
+
+    const handleGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    };
+
+    const handleGithub = () => {
+        githubSignIn()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
+    const handleFacebook = () => {
+        facebookSignIn()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email')
+        const password = form.get('password')
+        signIn(email, password)
+            .then(result => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Well Done',
+                    text: 'Log Out Successful',
+                })
+            })
+
+            .catch(error=>{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Opps...!',
+                    text: 'User & Password Wrong',
+                })
+            })
+    }
+
 
     useEffect(() => {
         AOS.init();
@@ -16,24 +73,24 @@ const Login = () => {
             className="mx-auto border-4 rounded-xl shadow-2xl shadow-[#7c60ff] md:bg-[#7c60ff33] my-4 border-[#7c60ff] flex justify-center md:w-1/2 py-10 px-0 md:px-5"
         >
             <div
-            data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000"
-            className="relative flex flex-col rounded-xl bg-dark bg-clip-border text-white">
+                data-aos="fade-down" data-aos-delay="50" data-aos-duration="1000"
+                className="relative flex flex-col rounded-xl bg-dark bg-clip-border text-white">
                 <h4 className="block text-center text-3xl font-bold leading-snug tracking-normal text-white antialiased">
                     Log In
                 </h4>
                 <p className="mt-1 text-center block text-base font-normal leading-relaxed text-white antialiased">
                     Enter your Email And Password.
                 </p>
-                <form className="mt-8 mb-2 md:w-80 max-w-screen-lg md:w-96">
+                <form onSubmit={handleLogin} className="mt-8 mb-2 md:w-80 max-w-screen-lg md:w-96">
                     <div className="mb-4 flex flex-col gap-6">
                         <div
-                        data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000"
-                        className="relative h-11 w-full min-w-[200px]">
+                            data-aos="fade-left" data-aos-delay="50" data-aos-duration="1000"
+                            className="relative h-11 w-full min-w-[200px]">
                             <input
                                 type="email"
                                 name="email"
                                 required
-                                className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-[#7c60ff] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                                className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 border-t-transparent placeholder-shown:border-t-transparent-200 focus:border-2 focus:border-[#7c60ff] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                 placeholder=" "
 
                             />
@@ -42,13 +99,13 @@ const Login = () => {
                             </label>
                         </div>
                         <div
-                        data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000"
-                        className="relative h-11 w-full min-w-[200px]">
+                            data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000"
+                            className="relative h-11 w-full min-w-[200px]">
                             <input
                                 type="password"
                                 name="password"
                                 required
-                                className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-[#7c60ff] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                                className="peer h-full w-full rounded-md border border-t-transparent border-blue-gray-200 bg-transparent px-3 py-3 text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-transparent focus:border-2 focus:border-[#7c60ff] focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                 placeholder=" "
 
                             />
@@ -56,41 +113,42 @@ const Login = () => {
                                 Password
                             </label>
                         </div>
+                        <Link className="text-right">Forgot Password?</Link>
                     </div>
 
                     <button
-                    data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000"
+                        data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000"
                         className="mt-6 block w-full select-none rounded-lg bg-[#7c60ff] py-3 px-6 text-center align-middle text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="submit"
                         data-ripple-light="true"
                     >
                         Register
                     </button>
-                    <hr className="my-4" />
-                    <div data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000">
-                        <p className="flex items-center justify-center">
-                            <p className="w-1/4 h-[3px] bg-slate-400"></p>
-                            <span className="mx-2">Continue with</span>
-                            <p className="w-1/4 h-[3px] bg-slate-400"></p>
-                        </p>
-                        <div className="flex justify-center items-center space-x-3 text-2xl my-2">
-                            <button><BsGoogle></BsGoogle></button>
-                            <button><BsGithub></BsGithub></button>
-                            <button><BsFacebook></BsFacebook></button>
-                        </div>
+                </form>
+                <hr className="my-4" />
+                <div data-aos="zoom-in" data-aos-delay="50" data-aos-duration="1000">
+                    <p className="flex items-center justify-center">
+                        <p className="w-1/4 h-[3px] bg-slate-400"></p>
+                        <span className="mx-2">Continue with</span>
+                        <p className="w-1/4 h-[3px] bg-slate-400"></p>
+                    </p>
+                    <div className="flex justify-center items-center space-x-3 text-2xl my-2">
+                        <button onClick={handleGoogle}><BsGoogle></BsGoogle></button>
+                        <button onClick={handleGithub}><BsGithub></BsGithub></button>
+                        <button onClick={handleFacebook}><BsFacebook></BsFacebook></button>
                     </div>
-                    <p
+                </div>
+                <p
                     data-aos="zoom-out" data-aos-delay="50" data-aos-duration="1000"
                     className="mt-4 block text-center text-base font-normal leading-relaxed text-white antialiased">
-                        Already have an account?
-                        <Link
-                            className="ml-2 font-medium text-blue-600 transition-colors hover:text-[#7c60ff]"
-                            to='/register'
-                        >
-                            Create an account
-                        </Link>
-                    </p>
-                </form>
+                    Don't have an account?
+                    <Link
+                        className="ml-2 font-medium text-blue-600 transition-colors hover:text-[#7c60ff]"
+                        to='/register'
+                    >
+                        Create an account
+                    </Link>
+                </p>
             </div>
         </div>
     );

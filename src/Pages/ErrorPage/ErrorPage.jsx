@@ -11,7 +11,7 @@ const ErrorPage = () => {
     return (
         <div>
             <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif)' }}>
-                <div className="hero-overlay bg-opacity-80"></div>
+                <div className="hero-overlay bg-opacity-50"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000">
                         <h1 className="mb-5 text-white text-4xl font-bold">404</h1>

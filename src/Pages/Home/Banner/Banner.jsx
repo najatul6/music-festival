@@ -8,8 +8,8 @@ const Banner = () => {
         AOS.init();
     }, [])
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/RSmb7Q9/excited-audience-watching-confetti-fireworks-having-fun-music-festival-night-copy-space.jpg)' }}>
-            <div className="hero-overlay bg-opacity-80"></div>
+        <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/tB4zhPc/aleksandr-popov-h-Tv8aa-Pzi-OQ-unsplash.jpg)' }}>
+            <div className="hero-overlay bg-opacity-50"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000">
                     <h1 className="mb-5 text-white text-3xl font-bold">EXHILARATING EXPERIENCES.</h1>
