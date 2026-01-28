@@ -15,7 +15,11 @@ const Service = () => {
         setService(findService)
     }, [id, services])
     return (
-        <div>
+        <div
+            data-aos="zoom-in"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+        >
             <div className="flex items-center justify-center py-4 shadow-md shadow-[#7366af] bg-[#7c60ff]">
                 <h2 className="text-xl text-white mx-2 uppercase md:text-3xl lg:text-4xl font-semibold ">Services Details</h2>
 
